@@ -1,13 +1,14 @@
-import React, {useMemo} from "react";
+import React from "react";
 import {TextField, Tooltip} from "@material-ui/core";
 import validators from "../validators";
 import FormControl from "@material-ui/core/FormControl/FormControl";
-import FormHelperText from "@material-ui/core/FormHelperText/FormHelperText";
 
 export default function MDTextField({value, onChange, field: {id, title, disabled, size, validation}, validator}) {
 
     const {valid, errorMessage} =
-        useMemo(() => validator(value, validation), [value]);
+        // useMemo(() =>
+        validator(value, validation)
+    // , [value]);
 
     return (
         <Tooltip title={errorMessage} placement={"bottom"}>
