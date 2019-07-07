@@ -1,0 +1,59 @@
+{
+  "name": "mui-dataforms",
+  "version": "0.1.1-8",
+  "description": "Dynamically generated data forms for use with Material-UI ",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.dev.js --mode development --open --display-error-details",
+    "build": "webpack --mode production --config webpack.config.js",
+    "build-dev": "webpack --mode development --config webpack.config.js",
+    "prerelease": "npm version prerelease && npm run build-dev && cd builds && npm pack ../"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iKrushYou/mui-dataforms.git"
+  },
+  "keywords": [
+    "data",
+    "form",
+    "dataform",
+    "dataforms",
+    "forms"
+  ],
+  "author": "Alex Krush",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iKrushYou/mui-dataforms/issues"
+  },
+  "homepage": "https://github.com/iKrushYou/mui-dataforms#readme",
+  "devDependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/pickers": "^3.1.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/pickers": "^3.1.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
