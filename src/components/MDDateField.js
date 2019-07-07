@@ -1,19 +1,20 @@
-import {KeyboardDatePicker} from "@material-ui/pickers";
-import React, {useMemo} from "react";
-import {Grid, Tooltip} from "@material-ui/core";
+import React from "react";
 
-export default function MDNumberField({values, onChange, field: {id, title, disabled, size, validation}, ...props}) {
+import MomentUtils from '@date-io/moment';
+import {DatePicker, MuiPickersUtilsProvider} from "material-ui-pickers";
+
+export default function MDNumberField({value, onChange, field: {id, title, disabled, size, validation}, ...props}) {
 
     return (
-        <Grid item xs={12} {...size}>
-            {/*<Tooltip title={errorMessage} placement={"bottom"}>*/}
-                <KeyboardDatePicker
-                    label={title}
-                    value={values[id]}
-                    onChange={date => onChange(id, date)}
-                    disabled={disabled}
-                />
-            {/*</Tooltip>*/}
-        </Grid>
+        <MuiPickersUtilsProvider utils={MomentUtils}>
+            <DatePicker
+                label={title}
+                value={value}
+                onChange={date => onChange(date)}
+                disabled={disabled}
+                fullWidth
+                {...props}
+            />
+        </MuiPickersUtilsProvider>
     )
 }
