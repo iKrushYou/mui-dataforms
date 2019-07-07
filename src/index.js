@@ -1,5 +1,5 @@
-import MuiDataform from './MuiDataform'
+import MuiDataform from './MuiDataform';
 
-export default MuiDataform
+export default MuiDataform;
 
-export * from './components'
+export * from './components';
