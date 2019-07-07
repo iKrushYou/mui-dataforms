@@ -50,7 +50,7 @@ const fields = [
 const [values, setValues] = useState({"first-name": "Alex"})
 
 const handleOnChange = (key) => (value) => {
-	setValues(prevValues => ({[key]: value, ...prevValues}))
+	setValues(prevValues => ({...prevValues, [key]: value}))
 }
 ```
 #### Implementation
