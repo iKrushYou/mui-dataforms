@@ -50,7 +50,7 @@ const fields = [
 const [values, setValues] = useState({"first-name": "Alex"})
 
 const handleOnChange = (key) => (value) => {
-	setValues(prevValues => ({[key]: value, ...prevValues}))
+	setValues(prevValues => ({...prevValues, [key]: value}))
 }
 ```
 #### Implementation
@@ -69,19 +69,19 @@ The component accepts the following props:
 |Name|Type|Default|Required|Description
 |:--:|:-----|:-----|:-----|:-----|
 |**`title`**|string|`''`|false|Title of the form
-|**`fields`**|array|`[]`|true|Data used to describe the fields. Array of `section` objects.
+|**`fields`**|array|`[]`|true|Data used to describe the fields. Array of [`section`](#options-section) objects.
 |**`values`**|object|`{}`|false|Object containing the values of the form. Each value's key is linked to the `id` of the relative field.
-|**`onChange`**|function||true|A function that will be triggered when the field changes. <br />`function(value) => ()`
+|**`onChange`**|function||true|A function that will be triggered when the field changes. <br />`key => value => ()`
 
-#### section:
+#### <a name="options-section"></a>section:
 |Name|Type|Default|Required|Description
 |:--:|:-----|:--|:-----|:-----|
 |**`title`**|string|`''`|false|Title of the section.
 |**`description`**|string|`''`|false|Description of the section.
-|**`fields`**|array|`[]`|false|Fields for the section. Array of `field` objects.
+|**`fields`**|array|`[]`|false|Fields for the section. Array of [`field`](#options-field) objects.
 
 
-#### field:
+#### <a name="options-field"></a>field:
 |Name|Type|Default|Required|Description
 |:--:|:-----|:--|:-----|:-----|
 |**`id`**|string||true|Reference to the value stored in the `values` object. Required unless `type` is set to `spacer`.
