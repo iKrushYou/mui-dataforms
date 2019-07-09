@@ -1,11 +1,8 @@
 import React from 'react';
+import {DatePicker} from "@material-ui/pickers";
 
-import MomentUtils from '@date-io/moment';
-import { DatePicker, MuiPickersUtilsProvider } from 'material-ui-pickers';
-
-export default function MDNumberField({ value, onChange, field: { id, title, disabled, size, validation }, ...props }) {
+export default function MDDateField({ value, onChange, field: { id, title, disabled, size, validation }, ...props }) {
   return (
-    <MuiPickersUtilsProvider utils={MomentUtils}>
       <DatePicker
         label={title}
         value={value}
@@ -14,6 +11,5 @@ export default function MDNumberField({ value, onChange, field: { id, title, dis
         fullWidth
         {...props}
       />
-    </MuiPickersUtilsProvider>
   );
 }
