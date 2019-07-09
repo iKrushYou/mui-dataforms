@@ -1,6 +1,6 @@
 {
   "name": "mui-dataforms",
-  "version": "0.1.1-18",
+  "version": "0.1.1-19",
   "description": "Dynamically generated data forms for use with Material-UI ",
   "main": "dist/index.js",
   "files": [
