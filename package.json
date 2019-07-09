@@ -11,14 +11,13 @@
   },
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js --mode development --open --display-error-details",
-    "build": "npm run prettier && babel src --out-dir dist",
-    "build-dev": "npm run prettier && babel src --out-dir dist",
-    "build-w": "npm run prettier && webpack --mode production --config webpack.config.js",
-    "build-dev-w": "npm run prettier && webpack --mode development --config webpack.config.js",
+    "build": "babel src --out-dir dist",
+    "build-dev": "babel src --out-dir dist",
+    "build-w": "webpack --mode production --config webpack.config.js",
+    "build-dev-w": "webpack --mode development --config webpack.config.js",
     "prerelease": "npm version prerelease && npm run build-dev",
     "pack": "mkdir -p builds && cd builds && npm pack ../",
-    "publish-dev": "npm publish --tag dev",
-    "prettier": "find src/ examples/ -type f -name \"*.js\" ! -path \"*/.next/*\" | xargs prettier --write"
+    "publish-dev": "npm publish --tag dev"
   },
   "repository": {
     "type": "git",
