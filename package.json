@@ -1,6 +1,6 @@
 {
   "name": "mui-dataforms",
-  "version": "0.1.1-20",
+  "version": "0.1.1-23",
   "description": "Dynamically generated data forms for use with Material-UI ",
   "main": "dist/index.js",
   "files": [
@@ -11,12 +11,13 @@
   },
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js --mode development --open --display-error-details",
-    "build": "npm run prettier && babel src --out-dir dist",
-    "build-dev": "npm run prettier && babel src --out-dir dist",
-    "build-w": "npm run prettier && webpack --mode production --config webpack.config.js",
-    "build-dev-w": "npm run prettier && webpack --mode development --config webpack.config.js",
-    "prerelease": "npm version prerelease && npm run build-dev && mkdir -p builds && cd builds && npm pack ../",
-    "prettier": "find src/ examples/ -type f -name \"*.js\" ! -path \"*/.next/*\" | xargs prettier --write"
+    "build": "babel src --out-dir dist",
+    "build-dev": "babel src --out-dir dist",
+    "build-w": "webpack --mode production --config webpack.config.js",
+    "build-dev-w": "webpack --mode development --config webpack.config.js",
+    "prerelease": "npm version prerelease && npm run build-dev",
+    "pack": "mkdir -p builds && cd builds && npm pack ../",
+    "publish-dev": "npm publish --tag dev"
   },
   "repository": {
     "type": "git",
@@ -47,7 +48,9 @@
     "babel-loader": "^8.0.0",
     "css-loader": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.0",
     "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "style-loader": "^0.23.1",
@@ -65,5 +68,10 @@
     "@material-ui/pickers": "^2.2.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged --pattern '**/*.*(js|jsx)'"
+    }
   }
 }
