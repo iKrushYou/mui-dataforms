@@ -1,4 +1,5 @@
 const validators = {
+  alwaysTrue: () => ({ valid: true, errorMessage: null }),
   text: (value, validation) => {
     let valid = true;
     let errorMessage = '';

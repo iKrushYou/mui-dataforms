@@ -18,7 +18,7 @@ export default function MuiDataform({ values, onChange, fields, spacing }) {
   return (
     <React.Fragment>
       <form noValidate autoComplete="off">
-        <Grid container spacing={3 * 8}>
+        <Grid container spacing={3}>
           {fields.map((section, index) => {
             return (
               <Grid item xs={12} key={`section-${section.title}-${index}`}>
@@ -32,7 +32,7 @@ export default function MuiDataform({ values, onChange, fields, spacing }) {
                     {section.description}
                   </Typography>
                 )}
-                <Grid container spacing={spacing * 8}>
+                <Grid container spacing={spacing}>
                   {section.fields.map((field, index) => {
                     const key = `${field.id}-${field.type}-${index}`;
                     let FieldComponent = MDUnknownField;

@@ -86,6 +86,24 @@ const App = () => {
             <TimePicker clearable ampm={false} label={field.title} value={value} onChange={onChange} fullWidth />
           ),
         },
+        {
+          id: 'biography',
+          title: 'Biography',
+          type: 'text',
+          validation: {
+            required: true,
+            min: 3,
+            max: 16,
+          },
+          size: {
+            xs: 12,
+            md: 6,
+          },
+          props: {
+            multiline: true,
+            rows: 4,
+          },
+        },
       ],
     },
 
@@ -182,6 +200,7 @@ const App = () => {
           id: 'other-list',
           title: 'Add me to the other list',
           type: 'switch',
+          validator: value => ({ valid: value, errorMessage: 'This field is required' }),
           size: {
             xs: 12,
             md: 3,
@@ -204,7 +223,7 @@ const App = () => {
         <Grid container style={{ marginTop: 64, marginBottom: 64 }}>
           <Grid item xs={false} md={2} />
           <Grid item xs={12} md={8}>
-            <Grid container spacing={3 * 8}>
+            <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Card>
                   <CardContent>

@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { TextField, Tooltip } from '@material-ui/core';
 import validators from '../validators';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
 
 export default function MDNumberField({
   value,
   onChange,
   field: { id, title, disabled, size, validation },
   validator,
+  ...props
 }) {
-  const { valid, errorMessage } =
-    // useMemo(() =>
-    validator(value, validation);
-  // , [value]);
+  const { valid, errorMessage } = useMemo(() => validator(value, validation), [value]);
 
   return (
-    <Tooltip title={errorMessage} placement={'bottom'}>
+    <FormControl error={!valid} fullWidth>
       <TextField
         id={id}
         label={title}
@@ -23,8 +23,10 @@ export default function MDNumberField({
         value={value || ''}
         onChange={event => onChange(event.target.value)}
         fullWidth
+        {...props}
       />
-    </Tooltip>
+      {errorMessage && <FormHelperText error={!valid}>{errorMessage}</FormHelperText>}
+    </FormControl>
   );
 }
 
