@@ -24,7 +24,7 @@ export default function MuiDataform({ values, onChange, fields, spacing }) {
   return (
     <React.Fragment>
       <MuiPickersUtilsProvider utils={MomentUtils}>
-        <form noValidate autoComplete="off">
+        <form noValidate autoComplete="off" fullWidth>
           <Grid container spacing={3}>
             {fields.map((section, index) => {
               return (
@@ -83,6 +83,7 @@ export default function MuiDataform({ values, onChange, fields, spacing }) {
                             onChange={onChange(field.id)}
                             field={{ ...fieldDefaults, ...field } || {}}
                             validator={field.validator}
+                            fullWidth
                             {...field.props}
                           />
                         </Grid>
