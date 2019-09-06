@@ -13,7 +13,7 @@ export default function MDSwitch({ value, onChange, field: { id, title, disabled
     <Tooltip title={''} placement={'bottom'}>
       <FormControl fullWidth>
         <FormControlLabel
-          control={<Switch checked={value} onChange={event => onChange(event.target.checked)} />}
+          control={<Switch checked={value || false} onChange={event => onChange(event.target.checked)} />}
           label={title}
         />
         {!valid && <FormHelperText error={!valid}>{errorMessage}</FormHelperText>}
