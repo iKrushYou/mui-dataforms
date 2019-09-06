@@ -14,7 +14,7 @@ export default function MDCheckbox({ value, onChange, field: { id, title, disabl
     <Tooltip title={''} placement={'bottom'}>
       <FormControl fullWidth>
         <FormControlLabel
-          control={<Checkbox checked={value} onChange={event => onChange(event.target.checked)} />}
+          control={<Checkbox checked={value || false} onChange={event => onChange(event.target.checked)} />}
           label={title}
         />
         {!valid && <FormHelperText error={!valid}>{errorMessage}</FormHelperText>}
