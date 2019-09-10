@@ -72,6 +72,9 @@ export default function MuiDataform({ values, onChange, fields, spacing }) {
                           case 'switch':
                             FieldComponent = MDSwitch;
                             break;
+                          case 'custom':
+                            FieldComponent = field.Component;
+                            break;
                         }
                       }
 
